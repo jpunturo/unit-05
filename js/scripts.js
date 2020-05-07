@@ -66,6 +66,10 @@ function addGalleryItem(user, index) {
 	Call the setupCloseButton() function when a modal has been created to handle the close button.
 ***/
 function addModalToItems(modal, user) {
+	const dobMonth = user.dob.date.slice(5,7);
+	const dobDay = user.dob.date.slice(8,10);
+	const dobYear = user.dob.date.slice(2,4);
+	
 	modal.addEventListener('click', () => {
 		const html = `
 			<div class="modal-container">
@@ -79,7 +83,7 @@ function addModalToItems(modal, user) {
 						<hr>
 						<p class="modal-text">${user.cell}</p>
 						<p class="modal-text">${user.location.street.number} ${user.location.street.name}, ${user.location.country} ${user.location.postcode}</p>
-						<p class="modal-text">Birthday: ${user.dob.date.slice(0,10)} </p>
+						<p class="modal-text">Birthday: ${dobMonth}/${dobDay}/${dobYear} </p>
 					</div>
 				</div>
 			</div>
